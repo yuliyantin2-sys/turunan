@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Laju: Media Pembelajaran Interaktif Turunan Fase F Kelas XII</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter & Math-friendly feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        /* Smooth transitions */
+        .transition-custom { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 h-full flex flex-col">
+
+    <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white text-indigo-700 p-2 rounded-xl font-bold text-xl shadow">
+                    <i class="fa-solid fa-square-root-variable"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Jelajah Laju: Kalkulus Fase F</h1>
+                    <p class="text-xs text-indigo-200">Media Pembelajaran Interaktif • Pendekatan Deep Learning & Growth Mindset</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 mt-2 sm:mt-0">
+                <span id="mindsetScore" class="bg-indigo-600 border border-indigo-400 text-xs px-3 py-1 rounded-full font-medium">
+                    <i class="fa-solid fa-seedling text-emerald-300 mr-1"></i> XP Otak Berkembang: <strong id="xpVal">120</strong>
+                </span>
+                <button onclick="openGrowthModal()" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs px-3 py-1.5 rounded-lg font-medium transition shadow flex items-center space-x-1">
+                    <i class="fa-solid fa-lightbulb"></i><span>Refleksi Mindset</span>
+                </button>
+            </div>
+        </div>
+        <!-- Tab Navigation Bar -->
+        <nav class="bg-indigo-800 px-4 flex overflow-x-auto space-x-2 scrollbar-none border-t border-indigo-600">
+            <button onclick="switchTab('tab1', this)" class="tab-btn py-2.5 px-4 text-xs md:text-sm font-medium border-b-2 border-white text-white whitespace-nowrap transition">
+                1. Konteks Nyata & Mindset
+            </button>
+            <button onclick="switchTab('tab2', this)" class="tab-btn py-2.5 px-4 text-xs md:text-sm font-medium border-b-2 border-transparent text-indigo-200 hover:text-white whitespace-nowrap transition">
+                2. Konsep Limit & Contoh Soal
+            </button>
+            <button onclick="switchTab('tab3', this)" class="tab-btn py-2.5 px-4 text-xs md:text-sm font-medium border-b-2 border-transparent text-indigo-200 hover:text-white whitespace-nowrap transition">
+                3. Eksplorasi Rumus & Aturan
+            </button>
+            <button onclick="switchTab('tab4', this)" class="tab-btn py-2.5 px-4 text-xs md:text-sm font-medium border-b-2 border-transparent text-indigo-200 hover:text-white whitespace-nowrap transition">
+                4. Problem Solving & Kontekstual
+            </button>
+            <button onclick="switchTab('tab5', this)" class="tab-btn py-2.5 px-4 text-xs md:text-sm font-medium border-b-2 border-transparent text-amber-300 hover:text-white whitespace-nowrap transition font-bold">
+                <i class="fa-solid fa-pen-to-square mr-1"></i> 5. Kuis Evaluasi (20 Soal)
+            </button>
+        </nav>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 overflow-y-auto">
+
+        <!-- TAB 1: REALITY & GROWTH MINDSET -->
+        <div id="tab1" class="tab-content active space-y-6">
+            <div class="bg-gradient-to-r from-indigo-900 to-slate-900 text-white p-6 md:p-8 rounded-2xl shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-10 translate-y-10">
+                    <i class="fa-solid fa-chart-line text-9xl"></i>
+                </div>
+                <div class="max-w-3xl relative z-10">
+                    <span class="bg-emerald-500/30 text-emerald-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Tujuan Pembelajaran 1 & Growth Mindset</span>
+                    <h2 class="text-2xl md:text-3xl font-bold mt-3">Mengapa Kita Mempelajari Turunan di Dunia Nyata?</h2>
+                    <p class="text-indigo-100 mt-2 text-sm md:text-base leading-relaxed">
+                        Turunan (diferensial) mengukur seberapa cepat suatu nilai berubah. Kecepatan sesaat pada kendaraan, laju pertumbuhan populasi bakteri, hingga optimasi keuntungan bisnis—semuanya menggunakan konsep turunan.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <button onclick="boostXP(20)" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs md:text-sm px-4 py-2 rounded-xl font-semibold shadow transition flex items-center space-x-2">
+                            <i class="fa-solid fa-brain"></i><span>Saya Siap Bertumbuh Hari Ini (+20 XP)</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800">Kecepatan Sesaat Kendaraan</h3>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Speedometer mencatat posisi terhadap waktu dalam selang waktu yang sangat kecil (<span class="font-mono font-semibold text-indigo-600">h &rarr; 0</span>). Itulah turunan posisi terhadap waktu: <span class="font-mono font-semibold">v(t) = s'(t)</span>.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+                        <span>Penerapan: Fisika & Navigasi</span>
+                        <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-pills"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800">Dosis & Penyerapan Obat</h3>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Tenaga medis menggunakan laju perubahan kadar obat dalam aliran darah untuk menentukan kapan waktu terbaik pemberian dosis berikutnya.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+                        <span>Penerapan: Farmakologi & Medis</span>
+                        <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800">Optimasi Desain Kemasan</h3>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Pabrik kemasan menghitung turunan nol (titik stasioner) untuk mencari dimensi kardus yang menghasilkan volume maksimum dengan bahan seminimal mungkin.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+                        <span>Penerapan: Ekonomi & Industri</span>
+                        <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Growth Mindset Prompt Card -->
+            <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-6">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-indigo-600 text-white p-3 rounded-xl">
+                        <i class="fa-solid fa-seedling text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-indigo-900 text-base">Refleksi Pola Pikir Bertumbuh (Growth Mindset)</h4>
+                        <p class="text-xs text-indigo-700 mt-1">
+                            "Ketika Anda merasa kesulitan memahami rumus kalkulus, itu bukan tanda kelemahan, melainkan bukti bahwa otak Anda sedang membangun koneksi saraf baru (neuroplastisitas)."
+                        </p>
+                        <div class="mt-3 flex items-center space-x-2 text-xs font-semibold text-indigo-800">
+                            <span class="bg-white px-2.5 py-1 rounded-md border border-indigo-200 shadow-sm">💡 Mantra Hari Ini: "Saya belum menguasainya sekarang, tapi dengan latihan konsisten saya pasti bisa."</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: LIMIT CONCEPT & EXAMPLES -->
+        <div id="tab2" class="tab-content space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div>
+                        <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Tujuan Pembelajaran 3</span>
+                        <h2 class="text-xl font-bold text-slate-800 mt-2">Menentukan Turunan dengan Konsep Limit (<span class="font-mono">h &rarr; 0</span>)</h2>
+                        <p class="text-xs text-slate-500 mt-1">Geser nilai <span class="font-mono font-bold">h</span> mendekati 0 untuk melihat tali busur (secant) berubah menjadi garis singgung (tangent) kurva.</p>
+                    </div>
+                    <div class="mt-3 md:mt-0 bg-slate-100 px-4 py-2 rounded-xl text-center">
+                        <div class="text-xs text-slate-500 font-medium">Definisi Limit Turunan</div>
+                        <div class="font-mono text-sm font-bold text-indigo-600">f'(x) = lim<sub>h&rarr;0</sub> [ f(x + h) &minus; f(x) ] / h</div>
+                    </div>
+                </div>
+
+                <!-- Interactive Canvas Simulation Area -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 bg-slate-900 rounded-2xl p-4 flex flex-col items-center justify-center relative min-h-[300px]">
+                        <canvas id="limitCanvas" class="w-full h-64 rounded-xl bg-slate-950"></canvas>
+                        <div class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur text-white text-xs px-3 py-1.5 rounded-lg border border-slate-700">
+                            Kurva: <span class="text-emerald-400 font-mono">f(x) = x<sup>2</sup></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-bold text-sm text-slate-700 mb-3"><i class="fa-solid fa-sliders mr-2"></i>Kontrol Pergeseran Nilai <span class="font-mono">h</span></h3>
+                            <label class="block text-xs text-slate-600 font-medium mb-1">Nilai <span class="font-mono">h</span> (Jarak titik uji): <span id="hVal" class="font-mono font-bold text-indigo-600">1.00</span></label>
+                            <input type="range" id="hSlider" min="0.01" max="2.00" step="0.01" value="1.00" class="w-full accent-indigo-600 cursor-pointer" oninput="updateLimitSim()">
+                        </div>
+
+                        <div class="space-y-2 bg-white p-4 rounded-xl border border-slate-200 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Titik Awal <span class="font-mono">x</span>:</span>
+                                <span class="font-mono font-bold text-slate-700">1.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Titik Geser <span class="font-mono">x + h</span>:</span>
+                                <span id="xhVal" class="font-mono font-bold text-slate-700">2.00</span>
+                            </div>
+                            <div class="flex justify-between border-t border-slate-100 pt-2">
+                                <span class="text-slate-500">Kemiringan Tali Busur (Secant):</span>
+                                <span id="secantVal" class="font-mono font-bold text-amber-600">3.00</span>
+                            </div>
+                            <div class="flex justify-between border-t border-slate-100 pt-2">
+                                <span class="text-slate-500">Turunan Sejati (<span class="font-mono">h &rarr; 0</span>):</span>
+                                <span id="trueDerivVal" class="font-mono font-bold text-emerald-600">2.00</span>
+                            </div>
+                        </div>
+
+                        <button onclick="checkLimitUnderstanding()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow">
+                            Uji Pemahaman Konsep Limit (+15 XP)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CONTOH SOAL TURUNAN DENGAN KONSEP LIMIT (Aljabar & Trigonometri) -->
+                <div class="mt-8 pt-6 border-t border-slate-200">
+                    <h3 class="font-bold text-base text-slate-800 mb-4"><i class="fa-solid fa-book-open-reader mr-2 text-indigo-600"></i>Contoh Soal Penerapan Konsep Limit untuk Turunan</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Contoh Aljabar -->
+                        <div class="bg-slate-50 border border-slate-200 p-5 rounded-xl space-y-3">
+                            <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2.5 py-1 rounded-md">Contoh 1: Fungsi Aljabar f(x) = 3x &minus; 1</span>
+                            <p class="text-xs text-slate-700 font-medium">Tentukan turunan dari <span class="font-mono font-bold text-indigo-600">f(x) = 3x &minus; 1</span> menggunakan definisi limit <span class="font-mono">f'(x) = lim<sub>h&rarr;0</sub> [ f(x+h) &minus; f(x) ] / h</span>.</p>
+                            <div class="bg-white p-3.5 rounded-lg border border-slate-200 text-xs text-slate-600 space-y-1.5 font-mono">
+                                <div class="text-slate-800 font-bold">Penyelesaian Langkah demi Langkah:</div>
+                                <div>1. f(x + h) = 3(x + h) &minus; 1 = 3x + 3h &minus; 1</div>
+                                <div>2. f(x + h) &minus; f(x) = (3x + 3h &minus; 1) &minus; (3x &minus; 1) = 3h</div>
+                                <div>3. f'(x) = lim<sub>h&rarr;0</sub> [ 3h / h ]</div>
+                                <div class="text-emerald-600 font-bold">4. f'(x) = lim<sub>h&rarr;0</sub> 3 = 3</div>
+                            </div>
+                        </div>
+
+                        <!-- Contoh Trigonometri -->
+                        <div class="bg-slate-50 border border-slate-200 p-5 rounded-xl space-y-3">
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">Contoh 2: Fungsi Trigonometri f(x) = sin(x)</span>
+                            <p class="text-xs text-slate-700 font-medium">Tentukan turunan dari <span class="font-mono font-bold text-emerald-600">f(x) = sin(x)</span> menggunakan definisi limit.</p>
+                            <div class="bg-white p-3.5 rounded-lg border border-slate-200 text-xs text-slate-600 space-y-1.5 font-mono">
+                                <div class="text-slate-800 font-bold">Penyelesaian Langkah demi Langkah:</div>
+                                <div>1. f'(x) = lim<sub>h&rarr;0</sub> [ sin(x + h) &minus; sin(x) ] / h</div>
+                                <div>2. Gunakan rumus jumlah sinus: sin(x+h) = sin x cos h + cos x sin h</div>
+                                <div>3. Bentuk limit: lim<sub>h&rarr;0</sub> [ sin x(cos h &minus; 1) + cos x sin h ] / h</div>
+                                <div class="text-emerald-600 font-bold">4. Karena lim(cos h - 1)/h = 0 dan lim(sin h)/h = 1, didapat f'(x) = cos(x)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: ALGEBRA, TRIGONOMETRY, PRODUCT, QUOTIENT & HIGHER-ORDER DERIVATIVES -->
+        <div id="tab3" class="tab-content space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <span class="bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Tujuan Pembelajaran 2 & 4</span>
+                <h2 class="text-xl font-bold text-slate-800 mt-2">Rumus Turunan Fungsi Aljabar, Trigonometri, Perkalian, Pembagian, & Derajat Tinggi</h2>
+                <p class="text-xs text-slate-500 mt-1">Eksplorasi rumus baku turunan lengkap termasuk turunan tingkat tinggi (kedua, ketiga, hingga ke-n) untuk analisis laju perubahan lanjutan.</p>
+
+                <!-- Toggle Buttons for Categories -->
+                <div class="flex flex-wrap gap-2 mt-4 border-b border-slate-200 pb-4">
+                    <button onclick="switchFormula('aljabar')" id="btnAljabar" class="px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-indigo-600 text-white transition shadow-sm">
+                        1. Fungsi Aljabar
+                    </button>
+                    <button onclick="switchFormula('trig')" id="btnTrig" class="px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        2. Fungsi Trigonometri (Lengkap)
+                    </button>
+                    <button onclick="switchFormula('perkalian')" id="btnPerkalian" class="px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        3. Aturan Perkalian (u &middot; v)
+                    </button>
+                    <button onclick="switchFormula('pembagian')" id="btnPembagian" class="px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        4. Aturan Pembagian (u / v)
+                    </button>
+                    <button onclick="switchFormula('rantai')" id="btnRantai" class="px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition font-bold text-rose-700">
+                        <i class="fa-solid fa-link mr-1"></i> 5. Aturan Rantai (Chain Rule)
+                    </button>
+                    <button onclick="switchFormula('tinggatinggi')" id="btnTinggiTinggi" class="px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition font-bold text-amber-700">
+                        <i class="fa-solid fa-chart-line mr-1"></i> 6. Turunan Derajat Tinggi
+                    </button>
+                </div>
+
+                <!-- 1. Aljabar Content -->
+                <div id="contentAljabar" class="mt-6 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl">
+                            <div class="text-xs font-semibold text-slate-400">Aturan Pangkat Dasar</div>
+                            <div class="font-mono font-bold text-slate-800 text-base mt-1">f(x) = a &middot; x<sup>n</sup></div>
+                            <div class="mt-2 font-mono text-xs text-indigo-600 bg-indigo-50 p-2 rounded-lg">f'(x) = a &middot; n &middot; x<sup>n&minus;1</sup></div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl">
+                            <div class="text-xs font-semibold text-slate-400">Aturan Jumlah & Selisih</div>
+                            <div class="font-mono font-bold text-slate-800 text-base mt-1">f(x) = u(x) &plusmn; v(x)</div>
+                            <div class="mt-2 font-mono text-xs text-indigo-600 bg-indigo-50 p-2 rounded-lg">f'(x) = u'(x) &plusmn; v'(x)</div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Practice Mini Quiz -->
+                    <div class="bg-indigo-50/60 border border-indigo-200 p-5 rounded-xl mt-6">
+                        <h4 class="font-bold text-sm text-indigo-900 mb-2"><i class="fa-solid fa-puzzle-piece mr-2"></i>Latihan Cepat Aljabar</h4>
+                        <p class="text-xs text-indigo-700 mb-3">Tentukan turunan dari fungsi: <span class="font-mono font-bold">f(x) = 4x<sup>3</sup> &minus; 5x<sup>2</sup> + 7</span></p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="answerQuiz(1, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">A. 12x<sup>2</sup> &minus; 10x</button>
+                            <button onclick="answerQuiz(1, true)" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-2 rounded-lg shadow transition">B. 12x<sup>2</sup> &minus; 10x + 0</button>
+                            <button onclick="answerQuiz(1, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">C. 4x<sup>2</sup> &minus; 5x</button>
+                        </div>
+                        <div id="quizFeedback1" class="mt-3 text-xs font-semibold"></div>
+                    </div>
+                </div>
+
+                <!-- 2. Trig Content (Complete with sin, cos, tan, cot, sec, csc) -->
+                <div id="contentTrig" class="mt-6 space-y-4 hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-center">
+                            <div class="text-xs font-semibold text-slate-400">Turunan Sinus</div>
+                            <div class="font-mono font-bold text-slate-800 text-sm mt-1">f(x) = sin(x)</div>
+                            <div class="mt-2 font-mono text-xs text-emerald-600 bg-emerald-50 p-2 rounded-lg">f'(x) = cos(x)</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-center">
+                            <div class="text-xs font-semibold text-slate-400">Turunan Kosinus</div>
+                            <div class="font-mono font-bold text-slate-800 text-sm mt-1">f(x) = cos(x)</div>
+                            <div class="mt-2 font-mono text-xs text-amber-600 bg-amber-50 p-2 rounded-lg">f'(x) = &minus;sin(x)</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-center">
+                            <div class="text-xs font-semibold text-slate-400">Turunan Tangen</div>
+                            <div class="font-mono font-bold text-slate-800 text-sm mt-1">f(x) = tan(x)</div>
+                            <div class="mt-2 font-mono text-xs text-indigo-600 bg-indigo-50 p-2 rounded-lg">f'(x) = sec<sup>2</sup>(x)</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-center">
+                            <div class="text-xs font-semibold text-slate-400">Turunan Cotangen</div>
+                            <div class="font-mono font-bold text-slate-800 text-sm mt-1">f(x) = cot(x)</div>
+                            <div class="mt-2 font-mono text-xs text-purple-600 bg-purple-50 p-2 rounded-lg">f'(x) = &minus;csc<sup>2</sup>(x)</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-center">
+                            <div class="text-xs font-semibold text-slate-400">Turunan Secan</div>
+                            <div class="font-mono font-bold text-slate-800 text-sm mt-1">f(x) = sec(x)</div>
+                            <div class="mt-2 font-mono text-xs text-blue-600 bg-blue-50 p-2 rounded-lg">f'(x) = sec(x) &middot; tan(x)</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-center">
+                            <div class="text-xs font-semibold text-slate-400">Turunan Cosecan</div>
+                            <div class="font-mono font-bold text-slate-800 text-sm mt-1">f(x) = csc(x)</div>
+                            <div class="mt-2 font-mono text-xs text-rose-600 bg-rose-50 p-2 rounded-lg">f'(x) = &minus;csc(x) &middot; cot(x)</div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Practice Trig Quiz -->
+                    <div class="bg-indigo-50/60 border border-indigo-200 p-5 rounded-xl mt-6">
+                        <h4 class="font-bold text-sm text-indigo-900 mb-2"><i class="fa-solid fa-puzzle-piece mr-2"></i>Latihan Cepat Trigonometri</h4>
+                        <p class="text-xs text-indigo-700 mb-3">Tentukan turunan dari fungsi: <span class="font-mono font-bold">f(x) = 3 sin(x) + 2 cot(x)</span></p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="answerQuiz(2, true)" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-2 rounded-lg shadow transition">A. 3 cos(x) &minus; 2 csc<sup>2</sup>(x)</button>
+                            <button onclick="answerQuiz(2, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">B. 3 cos(x) + 2 csc<sup>2</sup>(x)</button>
+                            <button onclick="answerQuiz(2, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">C. &minus;3 sin(x) &minus; 2 tan(x)</button>
+                        </div>
+                        <div id="quizFeedback2" class="mt-3 text-xs font-semibold"></div>
+                    </div>
+                </div>
+
+                <!-- 3. Aturan Perkalian (Product Rule) -->
+                <div id="contentPerkalian" class="mt-6 space-y-4 hidden">
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-xl">
+                        <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2.5 py-1 rounded-md">Aturan Perkalian Dua Fungsi</span>
+                        <div class="font-mono font-bold text-slate-800 text-base mt-2">f(x) = u(x) &middot; v(x)</div>
+                        <div class="mt-3 font-mono text-sm text-indigo-600 bg-indigo-50 p-3 rounded-lg border border-indigo-100">
+                            f'(x) = u'(x) &middot; v(x) + u(x) &middot; v'(x)
+                        </div>
+                        <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+                            Mantra mudah diinget: <em>"Turunan pertama kali fungsi kedua, ditambah fungsi pertama kali turunan kedua."</em>
+                        </p>
+                    </div>
+
+                    <!-- Interactive Practice Product Quiz -->
+                    <div class="bg-indigo-50/60 border border-indigo-200 p-5 rounded-xl">
+                        <h4 class="font-bold text-sm text-indigo-900 mb-2"><i class="fa-solid fa-puzzle-piece mr-2"></i>Latihan Aturan Perkalian</h4>
+                        <p class="text-xs text-indigo-700 mb-3">Tentukan turunan dari <span class="font-mono font-bold">f(x) = x<sup>2</sup> &middot; sin(x)</span></p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="answerQuiz(3, true)" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-2 rounded-lg shadow transition">A. 2x &middot; sin(x) + x<sup>2</sup> &middot; cos(x)</button>
+                            <button onclick="answerQuiz(3, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">B. 2x &middot; cos(x)</button>
+                            <button onclick="answerQuiz(3, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">C. x<sup>2</sup> &middot; cos(x)</button>
+                        </div>
+                        <div id="quizFeedback3" class="mt-3 text-xs font-semibold"></div>
+                    </div>
+                </div>
+
+                <!-- 4. Aturan Pembagian (Quotient Rule) -->
+                <div id="contentPembagian" class="mt-6 space-y-4 hidden">
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-xl">
+                        <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2.5 py-1 rounded-md">Aturan Pembagian Dua Fungsi</span>
+                        <div class="font-mono font-bold text-slate-800 text-base mt-2">f(x) = u(x) / v(x)</div>
+                        <div class="mt-3 font-mono text-sm text-indigo-600 bg-indigo-50 p-3 rounded-lg border border-indigo-100">
+                            f'(x) = [ u'(x) &middot; v(x) &minus; u(x) &middot; v'(x) ] / [ v(x) ]<sup>2</sup>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+                            Mantra mudah diinget: <em>"U ' aksen V dikurang U V ' aksen, dibagi V kuadrat."</em>
+                        </p>
+                    </div>
+
+                    <!-- Interactive Practice Quotient Quiz -->
+                    <div class="bg-indigo-50/60 border border-indigo-200 p-5 rounded-xl">
+                        <h4 class="font-bold text-sm text-indigo-900 mb-2"><i class="fa-solid fa-puzzle-piece mr-2"></i>Latihan Aturan Pembagian</h4>
+                        <p class="text-xs text-indigo-700 mb-3">Tentukan turunan dari <span class="font-mono font-bold">f(x) = sin(x) / x</span></p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="answerQuiz(4, true)" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-2 rounded-lg shadow transition">A. [ cos(x) &middot; x &minus; sin(x) ] / x<sup>2</sup></button>
+                            <button onclick="answerQuiz(4, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">B. cos(x) / 1</button>
+                            <button onclick="answerQuiz(4, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">C. [ sin(x) &middot; x &minus; cos(x) ] / x<sup>2</sup></button>
+                        </div>
+                        <div id="quizFeedback4" class="mt-3 text-xs font-semibold"></div>
+                    </div>
+                </div>
+
+                <!-- 5. Aturan Rantai (Chain Rule) -->
+                <div id="contentRantai" class="mt-6 space-y-6 hidden">
+                    <div class="bg-rose-50 border border-rose-200 p-5 rounded-2xl space-y-3">
+                        <span class="bg-rose-200 text-rose-900 text-xs font-semibold px-2.5 py-1 rounded-md uppercase tracking-wider">Konsep Aturan Rantai (Chain Rule)</span>
+                        <h3 class="font-bold text-slate-800 text-base">Bagaimana Menurunkan Fungsi Komposit / Berpangkat?</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Aturan Rantai digunakan saat kita ingin mencari turunan dari fungsi komposit (fungsi di dalam fungsi), seperti <span class="font-mono text-rose-600 font-bold">f(x) = [g(x)]<sup>n</sup></span> atau fungsi trigonometri dengan sudut majemuk seperti <span class="font-mono text-rose-600 font-bold">sin(ax + b)</span>.
+                        </p>
+                        
+                        <div class="bg-white p-4 rounded-xl border border-rose-200 space-y-2 text-xs font-mono">
+                            <div class="text-slate-800 font-bold font-sans">Rumus Umum Aturan Rantai:</div>
+                            <div class="text-rose-600 font-bold text-sm">f(x) = [ g(x) ]<sup>n</sup> &rarr; f'(x) = n &middot; [ g(x) ]<sup>n&minus;1</sup> &middot; g'(x)</div>
+                            <div class="text-slate-500 pt-1 font-sans">Atau dalam bentuk notasi Leibniz: <span class="font-mono text-slate-700">dy/dx = (dy/du) &middot; (du/dx)</span></div>
+                        </div>
+
+                        <div class="bg-white/80 p-3.5 rounded-xl border border-rose-100 text-xs text-slate-700 space-y-1">
+                            <strong class="text-slate-900">Contoh Penerapan:</strong> Tentukan turunan dari <span class="font-mono text-rose-600">f(x) = (3x<sup>2</sup> &minus; 5)<sup>4</sup></span>
+                            <div>1. Turunkan pangkat luar: <span class="font-mono">4 &middot; (3x<sup>2</sup> &minus; 5)<sup>3</sup></span></div>
+                            <div>2. Kalikan dengan turunan fungsi di dalam kurung: <span class="font-mono">g'(x) = 6x</span></div>
+                            <div class="text-emerald-700 font-bold">3. Hasil Akhir: f'(x) = 4 &middot; (3x<sup>2</sup> &minus; 5)<sup>3</sup> &middot; (6x) = 24x(3x<sup>2</sup> &minus; 5)<sup>3</sup></div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Practice Chain Rule Quiz -->
+                    <div class="bg-indigo-50/60 border border-indigo-200 p-5 rounded-xl">
+                        <h4 class="font-bold text-sm text-indigo-900 mb-2"><i class="fa-solid fa-puzzle-piece mr-2"></i>Latihan Cepat Aturan Rantai</h4>
+                        <p class="text-xs text-indigo-700 mb-3">Tentukan turunan dari fungsi trigonometri: <span class="font-mono font-bold">f(x) = sin(4x &minus; 2)</span></p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="answerChainQuiz(true)" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-2 rounded-lg shadow transition">A. 4 cos(4x &minus; 2)</button>
+                            <button onclick="answerChainQuiz(false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">B. cos(4x &minus; 2)</button>
+                            <button onclick="answerChainQuiz(false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">C. &minus;4 cos(4x &minus; 2)</button>
+                        </div>
+                        <div id="quizFeedbackChain" class="mt-3 text-xs font-semibold"></div>
+                    </div>
+                </div>
+
+                <!-- 6. Turunan Derajat Tinggi (Higher-Order Derivatives) -->
+                <div id="contentTinggiTinggi" class="mt-6 space-y-6 hidden">
+                    <div class="bg-amber-50 border border-amber-200 p-5 rounded-2xl space-y-3">
+                        <span class="bg-amber-200 text-amber-900 text-xs font-semibold px-2.5 py-1 rounded-md uppercase tracking-wider">Konsep Turunan Tingkat Tinggi</span>
+                        <h3 class="font-bold text-slate-800 text-base">Apa itu Turunan Derajat Tinggi?</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Jika turunan pertama <span class="font-mono text-indigo-600">f'(x)</span> memberikan laju perubahan fungsi, maka menurunkan <span class="font-mono text-indigo-600">f'(x)</span> sekali lagi menghasilkan <strong>Turunan Kedua (<span class="font-mono">f''(x)</span>)</strong> yang mengukur <em>laju dari laju perubahan</em> (kecepatan perubahan kemiringan / kecekungan kurva atau percepatan dalam fisika). Proses ini dapat dilanjutkan ke turunan ketiga (<span class="font-mono">f'''(x)</span>) hingga turunan ke-<span class="font-mono">n</span> (<span class="font-mono">f<sup>(n)</sup>(x)</span>).
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="bg-white p-3.5 rounded-xl border border-amber-200 text-center">
+                                <div class="text-xs text-slate-400 font-semibold">Turunan Pertama</div>
+                                <div class="font-mono text-sm font-bold text-indigo-600 mt-1">f'(x) atau dy/dx</div>
+                                <div class="text-[11px] text-slate-500 mt-1">Kecepatan / Kemiringan</div>
+                            </div>
+                            <div class="bg-white p-3.5 rounded-xl border border-amber-200 text-center">
+                                <div class="text-xs text-slate-400 font-semibold">Turunan Kedua</div>
+                                <div class="font-mono text-sm font-bold text-amber-600 mt-1">f''(x) atau d<sup>2</sup>y/dx<sup>2</sup></div>
+                                <div class="text-[11px] text-slate-500 mt-1">Percepatan / Kecekungan</div>
+                            </div>
+                            <div class="bg-white p-3.5 rounded-xl border border-amber-200 text-center">
+                                <div class="text-xs text-slate-400 font-semibold">Turunan ke-n</div>
+                                <div class="font-mono text-sm font-bold text-emerald-600 mt-1">f<sup>(n)</sup>(x) atau d<sup>n</sup>y/dx<sup>n</sup></div>
+                                <div class="text-[11px] text-slate-500 mt-1">Generalisasi Tingkat Lanjut</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Demonstration Calculator / Simulator for Higher Order Derivatives -->
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-4">
+                        <h4 class="font-bold text-sm text-slate-800"><i class="fa-solid fa-calculator mr-2 text-indigo-600"></i>Simulator Penurunan Bertingkat Fungsi Polinomial</h4>
+                        <p class="text-xs text-slate-500">Masukkan fungsi polinomial <span class="font-mono font-bold">f(x)</span> di bawah ini dan lihat hasil turunan pertama hingga keempatnya secara instan!</p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <div class="flex-1">
+                                <label class="block text-xs font-medium text-slate-600 mb-1">Pilih / Ketik Bentuk Fungsi:</label>
+                                <select id="polySelect" onchange="updatePolySimulation()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-mono focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                                    <option value="2x4 - 5x3 + 3x2 - 7x + 10">f(x) = 2x⁴ − 5x³ + 3x² − 7x + 10</option>
+                                    <option value="x3 - 6x2 + 9x - 4">f(x) = x³ − 6x² + 9x − 4</option>
+                                    <option value="5x4 + 2x2 - 8">f(x) = 5x⁴ + 2x² − 8</option>
+                                    <option value="x4 - 4x3">f(x) = x⁴ − 4x³</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Result Display Box -->
+                        <div id="polyResultBox" class="bg-white p-4 rounded-xl border border-slate-200 space-y-2 text-xs font-mono">
+                            <div><strong>f(x)</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span id="resF0" class="text-slate-800 font-bold">2x⁴ − 5x³ + 3x² − 7x + 10</span></div>
+                            <div><strong>f'(x)</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span id="resF1" class="text-indigo-600 font-bold">8x³ − 15x² + 6x − 7</span></div>
+                            <div><strong>f''(x)</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span id="resF2" class="text-amber-600 font-bold">24x² − 30x + 6</span></div>
+                            <div><strong>f'''(x)</strong> &nbsp;&nbsp;&nbsp;&nbsp;= <span id="resF3" class="text-purple-600 font-bold">48x − 30</span></div>
+                            <div><strong>f<sup>(4)</sup>(x)</strong> &nbsp;&nbsp;&nbsp;= <span id="resF4" class="text-emerald-600 font-bold">48</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Practice Higher-Order Quiz -->
+                    <div class="bg-indigo-50/60 border border-indigo-200 p-5 rounded-xl">
+                        <h4 class="font-bold text-sm text-indigo-900 mb-2"><i class="fa-solid fa-puzzle-piece mr-2"></i>Latihan Cepat Turunan Derajat Tinggi</h4>
+                        <p class="text-xs text-indigo-700 mb-3">Tentukan turunan kedua (<span class="font-mono font-bold">f''(x)</span>) dari fungsi: <span class="font-mono font-bold">f(x) = 4x<sup>3</sup> &minus; 2x<sup>2</sup> + 5x &minus; 9</span></p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="answerQuiz(5, true)" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-2 rounded-lg shadow transition">A. 24x &minus; 4</button>
+                            <button onclick="answerQuiz(5, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">B. 12x<sup>2</sup> &minus; 4x + 5</button>
+                            <button onclick="answerQuiz(5, false)" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium px-3 py-2 rounded-lg border border-slate-200 transition">C. 24x</button>
+                        </div>
+                        <div id="quizFeedback5" class="mt-3 text-xs font-semibold"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: PROBLEM SOLVING & CONTEXTUAL APPLICATIONS -->
+        <div id="tab4" class="tab-content space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Tujuan Pembelajaran 5 & Deep Learning</span>
+                <h2 class="text-xl font-bold text-slate-800 mt-2">Penyelesaian Masalah Kontekstual & Limit Terkait</h2>
+                <p class="text-xs text-slate-500 mt-1">Bagaimana konsep turunan dan aturan L'Hôpital menyelesaikan masalah optimasi nyata serta limit fungsi aljabar & trigonometri.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <!-- Problem Card 1: Optimasi Kotak Tanpa Tutup -->
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">Optimasi Kontekstual (Industri)</span>
+                            <h3 class="font-bold text-slate-800 text-base mt-2">Pembuatan Kotak Tanpa Tutup</h3>
+                            <p class="text-xs text-slate-500 mt-1">Sebuah karton berukuran 12 cm &times; 12 cm akan dibuat kotak tanpa tutup dengan memotong keempat sudutnya seluas <span class="font-mono">x</span>. Tentukan nilai <span class="font-mono">x</span> agar volume maksimum!</p>
+                            <div class="mt-3 text-xs text-slate-600 bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                                <div><strong>Strategi Pemecahan:</strong></div>
+                                <div>1. Fungsi Volume: <span class="font-mono text-indigo-600">V(x) = x(12 &minus; 2x)(12 &minus; 2x) = 4x<sup>3</sup> &minus; 48x<sup>2</sup> + 144x</span></div>
+                                <div>2. Titik stasioner: <span class="font-mono text-indigo-600">V'(x) = 12x<sup>2</sup> &minus; 96x + 144 = 0</span></div>
+                                <div>3. Akar persamaan: <span class="font-mono text-emerald-600">x = 2</span> (karena x = 6 tidak memenuhi).</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex justify-between items-center text-xs">
+                            <span class="text-emerald-600 font-semibold"><i class="fa-solid fa-check mr-1"></i> Teruji Kontekstual Nyata</span>
+                            <button onclick="showSolutionModal('kotak')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg font-medium transition">Pelajari Langkah</button>
+                        </div>
+                    </div>
+
+                    <!-- Problem Card 2: Laju Pertumbuhan Populasi / Fisika -->
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Kecepatan & Percepatan Gerak</span>
+                            <h3 class="font-bold text-slate-800 text-base mt-2">Posisi Partikel terhadap Waktu</h3>
+                            <p class="text-xs text-slate-500 mt-1">Posisi partikel dinyatakan oleh <span class="font-mono font-bold text-slate-700">s(t) = t<sup>3</sup> &minus; 6t<sup>2</sup> + 9t</span>. Kapan partikel berhenti (<span class="font-mono">v = 0</span>)?</p>
+                            <div class="mt-3 text-xs text-slate-600 bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                                <div><strong>Strategi Pemecahan:</strong></div>
+                                <div>1. Kecepatan: <span class="font-mono text-emerald-600">v(t) = s'(t) = 3t<sup>2</sup> &minus; 12t + 9</span></div>
+                                <div>2. Saat berhenti, v(t) = 0 &rarr; <span class="font-mono text-emerald-600">3(t &minus; 1)(t &minus; 3) = 0</span></div>
+                                <div>3. Didapat waktu: <span class="font-mono text-indigo-600">t = 1 detik</span> atau <span class="font-mono text-indigo-600">t = 3 detik</span>.</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex justify-between items-center text-xs">
+                            <span class="text-emerald-600 font-semibold"><i class="fa-solid fa-check mr-1"></i> Teruji Fisika Dasar</span>
+                            <button onclick="showSolutionModal('partikel')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg font-medium transition">Pelajari Langkah</button>
+                        </div>
+                    </div>
+
+                    <!-- Problem Card 3: Limit Aljabar (L'Hopital) -->
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">Kasus Limit Aljabar</span>
+                            <h3 class="font-bold text-slate-800 text-base mt-2">Menyelesaikan Limit Bentuk 0 / 0</h3>
+                            <p class="text-xs text-slate-500 mt-1">Hitung nilai dari: <span class="font-mono font-bold text-slate-700">lim<sub>x&rarr;2</sub> [ (x<sup>2</sup> &minus; 4) / (x &minus; 2) ]</span></p>
+                            <div class="mt-3 text-xs text-slate-600 bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                                <div><strong>Strategi Turunan (L'Hôpital):</strong></div>
+                                <div>Turunkan pembilang: <span class="font-mono text-indigo-600">2x</span></div>
+                                <div>Turunkan penyebut: <span class="font-mono text-indigo-600">1</span></div>
+                                <div>Substitusi <span class="font-mono">x = 2 &rarr; 2(2) / 1 = 4</span></div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex justify-between items-center text-xs">
+                            <span class="text-emerald-600 font-semibold"><i class="fa-solid fa-check mr-1"></i> Teruji Cepat & Efisien</span>
+                            <button onclick="showSolutionModal('aljabar')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg font-medium transition">Pelajari Langkah</button>
+                        </div>
+                    </div>
+
+                    <!-- Problem Card 4: Limit Trigonometri -->
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Kasus Limit Trigonometri</span>
+                            <h3 class="font-bold text-slate-800 text-base mt-2">Limit Bentuk Tak Tentu Sinus</h3>
+                            <p class="text-xs text-slate-500 mt-1">Hitung nilai dari: <span class="font-mono font-bold text-slate-700">lim<sub>x&rarr;0</sub> [ sin(3x) / x ]</span></p>
+                            <div class="mt-3 text-xs text-slate-600 bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                                <div><strong>Strategi Turunan (L'Hôpital):</strong></div>
+                                <div>Turunkan pembilang: <span class="font-mono text-emerald-600">3 cos(3x)</span></div>
+                                <div>Turunkan penyebut: <span class="font-mono text-emerald-600">1</span></div>
+                                <div>Substitusi <span class="font-mono">x = 0 &rarr; 3(1) / 1 = 3</span></div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex justify-between items-center text-xs">
+                            <span class="text-emerald-600 font-semibold"><i class="fa-solid fa-check mr-1"></i> Teruji Cepat & Efisien</span>
+                            <button onclick="showSolutionModal('trig')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg font-medium transition">Pelajari Langkah</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: 20 QUESTIONS COMPREHENSIVE QUIZ -->
+        <div id="tab5" class="tab-content space-y-6">
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-slate-200">
+                    <div>
+                        <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Evaluasi Akhir Fase F</span>
+                        <h2 class="text-2xl font-bold text-slate-800 mt-2">Kuis Komprehensif Turunan & Limit (20 Soal)</h2>
+                        <p class="text-xs text-slate-500 mt-1">Selesaikan seluruh 20 soal pilihan ganda di bawah ini. Tombol kunci jawaban dan pembahasan lengkap hanya akan terbuka setelah semua soal terjawab.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 bg-indigo-50 border border-indigo-200 px-4 py-2.5 rounded-xl text-center">
+                        <div class="text-xs text-indigo-600 font-medium">Soal Terjawab</div>
+                        <div class="font-mono text-base font-bold text-indigo-700"><span id="answeredCount">0</span> / 20</div>
+                    </div>
+                </div>
+
+                <div id="quizContainer" class="mt-6 space-y-8">
+                    <!-- Dynamic 20 Questions will be injected here via JavaScript -->
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <button onclick="submitQuiz()" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow transition flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-square-check"></i><span>Kumpulkan & Periksa Kuis (+100 XP)</span>
+                    </button>
+                    <div id="quizSummary" class="text-xs font-bold text-slate-700"></div>
+                </div>
+
+                <!-- Score & Answer Key Reveal Section -->
+                <div id="answerKeySection" class="mt-8 hidden bg-slate-50 border border-slate-300 rounded-2xl p-6 space-y-6 animate-fadeIn">
+                    <div class="flex items-center space-x-3 text-emerald-700">
+                        <i class="fa-solid fa-award text-2xl"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Hasil Kunci Jawaban & Pembahasan Lengkap</h3>
+                            <p class="text-xs text-slate-600">Perhatikan pembahasan di bawah untuk memperbaiki pemahaman konseptual Anda.</p>
+                        </div>
+                    </div>
+                    <div id="answerKeyList" class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+                        <!-- Detailed explanations injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Growth Mindset XP & Reflection Modal -->
+    <div id="growthModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative animate-fadeIn">
+            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center font-bold text-xl mb-4">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">Jurnal Refleksi Pola Pikir Bertumbuh</h3>
+            <p class="text-xs text-slate-500 mt-1 mb-4">Bagaimana perasaan dan perkembangan pemahaman Anda selama sesi ini?</p>
+            
+            <textarea id="reflectionText" rows="3" placeholder="Tuliskan satu tantangan kalkulus yang berhasil Anda taklukkan hari ini..." class="w-full text-xs p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
+            
+            <div class="mt-4 flex space-x-2">
+                <button onclick="submitReflection()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow">Simpan Refleksi (+50 XP)</button>
+                <button onclick="closeGrowthModal()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-xl transition">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Modal -->
+    <div id="solutionModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <div class="flex justify-between items-center mb-3">
+                <h3 id="modalTitle" class="text-base font-bold text-slate-800">Detail Pemecahan Masalah</h3>
+                <button onclick="closeSolutionModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <p id="modalDesc" class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200"></p>
+            <div class="mt-4 text-right">
+                <button onclick="closeSolutionModal()" class="bg-indigo-600 text-white text-xs px-4 py-2 rounded-xl">Mengerti & Paham</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let xp = 120;
+
+        function boostXP(amount) {
+            xp += amount;
+            document.getElementById('xpVal').innerText = xp;
+            showToast(`Hebat! +${amount} XP Otak Berkembang ditambahkan! 🚀`);
+        }
+
+        function showToast(msg) {
+            const div = document.createElement('div');
+            div.className = 'fixed bottom-4 right-4 bg-slate-900 text-white text-xs px-4 py-3 rounded-xl shadow-xl z-50 flex items-center space-x-2 animate-bounce';
+            div.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i><span>${msg}</span>`;
+            document.body.appendChild(div);
+            setTimeout(() => div.remove(), 3000);
+        }
+
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(el => {
+                el.classList.remove('border-white', 'text-white');
+                el.classList.add('border-transparent', 'text-indigo-200');
+            });
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.remove('border-transparent', 'text-indigo-200');
+            btn.classList.add('border-white', 'text-white');
+            if(tabId === 'tab2') {
+                setTimeout(initCanvas, 50);
+            }
+        }
+
+        // Limit Canvas Simulation
+        window.onload = function() {
+            initCanvas();
+            updateLimitSim();
+            updatePolySimulation();
+            renderQuiz();
+        }
+
+        function initCanvas() {
+            const canvas = document.getElementById('limitCanvas');
+            if(!canvas) return;
+            canvas.width = canvas.parentElement.clientWidth - 32;
+            canvas.height = 240;
+            const ctx = canvas.getContext('2d');
+            
+            // Background grid
+            ctx.fillStyle = '#020617';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height - 40); ctx.lineTo(canvas.width, canvas.height - 40);
+            ctx.moveTo(50, 0); ctx.lineTo(50, canvas.height);
+            ctx.stroke();
+
+            // Draw curve f(x) = x^2
+            ctx.strokeStyle = '#38bdf8';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            for(let px = 0; px < canvas.width; px++) {
+                let x = (px - 50) / 40;
+                let y = (x * x);
+                let py = (canvas.height - 40) - (y * 25);
+                if(px === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+        }
+
+        function updateLimitSim() {
+            const hSlider = document.getElementById('hSlider');
+            if(!hSlider) return;
+            const h = parseFloat(hSlider.value);
+            document.getElementById('hVal').innerText = h.toFixed(2);
+            let x = 1.0;
+            let xh = x + h;
+            document.getElementById('xhVal').innerText = xh.toFixed(2);
+            
+            let secant = 2 + h;
+            document.getElementById('secantVal').innerText = secant.toFixed(2);
+            document.getElementById('trueDerivVal').innerText = "2.00";
+        }
+
+        function checkLimitUnderstanding() {
+            boostXP(30);
+            showToast("Bagus! Anda memahami bagaimana tali busur berubah menjadi garis singgung saat h mendekati nol.");
+        }
+
+        // Formula switch
+        function switchFormula(type) {
+            const btnAljabar = document.getElementById('btnAljabar');
+            const btnTrig = document.getElementById('btnTrig');
+            const btnPerkalian = document.getElementById('btnPerkalian');
+            const btnPembagian = document.getElementById('btnPembagian');
+            const btnRantai = document.getElementById('btnRantai');
+            const btnTinggiTinggi = document.getElementById('btnTinggiTinggi');
+
+            const contentAljabar = document.getElementById('contentAljabar');
+            const contentTrig = document.getElementById('contentTrig');
+            const contentPerkalian = document.getElementById('contentPerkalian');
+            const contentPembagian = document.getElementById('contentPembagian');
+            const contentRantai = document.getElementById('contentRantai');
+            const contentTinggiTinggi = document.getElementById('contentTinggiTinggi');
+
+            [btnAljabar, btnTrig, btnPerkalian, btnPembagian, btnRantai, btnTinggiTinggi].forEach(b => {
+                b.className = "px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition";
+            });
+            [contentAljabar, contentTrig, contentPerkalian, contentPembagian, contentRantai, contentTinggiTinggi].forEach(c => c.classList.add('hidden'));
+
+            if(type === 'aljabar') {
+                btnAljabar.className = "px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-indigo-600 text-white transition shadow-sm";
+                contentAljabar.classList.remove('hidden');
+            } else if(type === 'trig') {
+                btnTrig.className = "px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-indigo-600 text-white transition shadow-sm";
+                contentTrig.classList.remove('hidden');
+            } else if(type === 'perkalian') {
+                btnPerkalian.className = "px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-indigo-600 text-white transition shadow-sm";
+                contentPerkalian.classList.remove('hidden');
+            } else if(type === 'pembagian') {
+                btnPembagian.className = "px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-indigo-600 text-white transition shadow-sm";
+                contentPembagian.classList.remove('hidden');
+            } else if(type === 'rantai') {
+                btnRantai.className = "px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-indigo-600 text-white transition shadow-sm font-bold";
+                contentRantai.classList.remove('hidden');
+            } else if(type === 'tinggatinggi') {
+                btnTinggiTinggi.className = "px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl bg-indigo-600 text-white transition shadow-sm font-bold";
+                contentTinggiTinggi.classList.remove('hidden');
+            }
+        }
+
+        function answerChainQuiz(isCorrect) {
+            const fb = document.getElementById('quizFeedbackChain');
+            if(isCorrect) {
+                fb.className = "mt-3 text-xs font-semibold text-emerald-600";
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Benar sekali! Turunan luar cos(4x - 2) dikalikan turunan sudut dalam (4). (+25 XP)`;
+                boostXP(25);
+            } else {
+                fb.className = "mt-3 text-xs font-semibold text-amber-600";
+                fb.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-1"></i> Hampir tepat! Jangan lupa mengalikan dengan turunan sudut di dalam kurung. Coba lagi!`;
+            }
+        }
+
+        // Polynomial simulator for higher order derivatives
+        function updatePolySimulation() {
+            const sel = document.getElementById('polySelect');
+            if(!sel) return;
+            const val = sel.value;
+            
+            const f0 = document.getElementById('resF0');
+            const f1 = document.getElementById('resF1');
+            const f2 = document.getElementById('resF2');
+            const f3 = document.getElementById('resF3');
+            const f4 = document.getElementById('resF4');
+
+            if(val.includes('2x4 - 5x3')) {
+                f0.innerText = "2x⁴ − 5x³ + 3x² − 7x + 10";
+                f1.innerText = "8x³ − 15x² + 6x − 7";
+                f2.innerText = "24x² − 30x + 6";
+                f3.innerText = "48x − 30";
+                f4.innerText = "48";
+            } else if(val.includes('x3 - 6x2')) {
+                f0.innerText = "x³ − 6x² + 9x − 4";
+                f1.innerText = "3x² − 12x + 9";
+                f2.innerText = "6x − 12";
+                f3.innerText = "6";
+                f4.innerText = "0";
+            } else if(val.includes('5x4 + 2x2')) {
+                f0.innerText = "5x⁴ + 2x² − 8";
+                f1.innerText = "20x³ + 4x";
+                f2.innerText = "60x² + 4";
+                f3.innerText = "120x";
+                f4.innerText = "120";
+            } else {
+                f0.innerText = "x⁴ − 4x³";
+                f1.innerText = "4x³ − 12x²";
+                f2.innerText = "12x² − 24x";
+                f3.innerText = "24x − 24";
+                f4.innerText = "24";
+            }
+        }
+
+        function answerQuiz(quizNo, isCorrect) {
+            const fb = document.getElementById(`quizFeedback${quizNo}`);
+            if(isCorrect) {
+                fb.className = "mt-3 text-xs font-semibold text-emerald-600";
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Benar sekali! Pola turunan Anda sudah terasah dengan baik. (+20 XP)`;
+                boostXP(20);
+            } else {
+                fb.className = "mt-3 text-xs font-semibold text-amber-600";
+                fb.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-1"></i> Hampir tepat! Mari ingat kembali aturan rumus turunan. Coba lagi!`;
+            }
+        }
+
+        const quizData = [
+            { 
+                q: "Turunan pertama dari fungsi f(x) = 5 adalah...", 
+                opts: ["5", "1", "0", "x", "5x"], 
+                ans: 2, 
+                exp: "Turunan dari fungsi konstan f(x) = c adalah selalu 0 (f'(x) = 0)." 
+            },
+            { 
+                q: "Turunan pertama dari f(x) = 3x<sup>4</sup> adalah...", 
+                opts: ["12x<sup>3</sup>", "3x<sup>3</sup>", "12x<sup>4</sup>", "7x<sup>3</sup>", "4x<sup>3</sup>"], 
+                ans: 0, 
+                exp: "Gunakan aturan pangkat (power rule): f'(x) = 3 &middot; 4x<sup>4&minus;1</sup> = 12x<sup>3</sup>." 
+            },
+            { 
+                q: "Jika f(x) = 2x<sup>3</sup> &minus; 4x<sup>2</sup> + 5x &minus; 7, maka f'(x) adalah...", 
+                opts: ["6x<sup>2</sup> &minus; 8x + 5", "6x<sup>2</sup> &minus; 4x + 5", "2x<sup>2</sup> &minus; 8x", "6x<sup>3</sup> &minus; 8x<sup>2</sup> + 5", "12x &minus; 8"], 
+                ans: 0, 
+                exp: "Turunkan setiap suku satu per satu: 2(3)x<sup>2</sup> &minus; 4(2)x + 5(1) &minus; 0 = 6x<sup>2</sup> &minus; 8x + 5." 
+            },
+            { 
+                q: "Turunan kedua f''(x) dari f(x) = x<sup>4</sup> &minus; 5x<sup>2</sup> adalah...", 
+                opts: ["4x<sup>3</sup> &minus; 10x", "12x<sup>2</sup> &minus; 10", "12x<sup>2</sup> &minus; 5", "24x", "4x<sup>3</sup> &minus; 5"], 
+                ans: 1, 
+                exp: "Turunan pertama f'(x) = 4x<sup>3</sup> &minus; 10x. Turunan kedua f''(x) = 12x<sup>2</sup> &minus; 10." 
+            },
+            { 
+                q: "Turunan pertama dari f(x) = sin(x) adalah...", 
+                opts: ["&minus;sin(x)", "cos(x)", "&minus;cos(x)", "tan(x)", "sec<sup>2</sup>(x)"], 
+                ans: 1, 
+                exp: "Berdasarkan rumus baku trigonometri, turunan dari f(x) = sin(x) adalah f'(x) = cos(x)." 
+            },
+            { 
+                q: "Turunan pertama dari f(x) = cos(x) adalah...", 
+                opts: ["sin(x)", "cos(x)", "&minus;sin(x)", "&minus;cos(x)", "cot(x)"], 
+                ans: 2, 
+                exp: "Berdasarkan rumus baku trigonometri, turunan dari f(x) = cos(x) adalah f'(x) = &minus;sin(x)." 
+            },
+            { 
+                q: "Turunan dari f(x) = tan(x) adalah...", 
+                opts: ["sec(x) tan(x)", "&minus;csc<sup>2</sup>(x)", "sec<sup>2</sup>(x)", "csc(x) cot(x)", "&minus;sec(x)"], 
+                ans: 2, 
+                exp: "Turunan dari f(x) = tan(x) adalah sec<sup>2</sup>(x)." 
+            },
+            { 
+                q: "Turunan dari f(x) = cot(x) adalah...", 
+                opts: ["csc<sup>2</sup>(x)", "&minus;csc<sup>2</sup>(x)", "&minus;sec<sup>2</sup>(x)", "sec<sup>2</sup>(x)", "&minus;tan<sup>2</sup>(x)"], 
+                ans: 1, 
+                exp: "Turunan dari f(x) = cot(x) adalah f'(x) = &minus;csc<sup>2</sup>(x)." 
+            },
+            { 
+                q: "Turunan dari f(x) = sec(x) adalah...", 
+                opts: ["sec(x) tan(x)", "&minus;sec(x) tan(x)", "csc(x) cot(x)", "&minus;csc(x) cot(x)", "sec<sup>2</sup>(x)"], 
+                ans: 0, 
+                exp: "Turunan dari f(x) = sec(x) adalah f'(x) = sec(x) &middot; tan(x)." 
+            },
+            { 
+                q: "Turunan dari f(x) = csc(x) adalah...", 
+                opts: ["csc(x) cot(x)", "&minus;csc(x) cot(x)", "sec(x) tan(x)", "&minus;sec(x) tan(x)", "&minus;csc<sup>2</sup>(x)"], 
+                ans: 1, 
+                exp: "Turunan dari f(x) = csc(x) adalah f'(x) = &minus;csc(x) &middot; cot(x)." 
+            },
+            { 
+                q: "Dengan aturan perkalian [u &middot; v]', jika f(x) = x<sup>2</sup> &middot; sin(x), maka f'(x) = ...", 
+                opts: ["2x &middot; cos(x)", "2x &middot; sin(x) + x<sup>2</sup> &middot; cos(x)", "x<sup>2</sup> &middot; cos(x)", "2x &middot; sin(x) &minus; x<sup>2</sup> &middot; cos(x)", "2x &middot; cos(x) + x<sup>2</sup> &middot; sin(x)"], 
+                ans: 1, 
+                exp: "Misal u = x<sup>2</sup> dan v = sin(x), maka u' = 2x, v' = cos(x). Hasil u'v + uv' = 2x &middot; sin(x) + x<sup>2</sup> &middot; cos(x)." 
+            },
+            { 
+                q: "Nilai dari lim<sub>h&rarr;0</sub> [ ( (x + h)<sup>2</sup> &minus; x<sup>2</sup> ) / h ] adalah...", 
+                opts: ["2x", "x<sup>2</sup>", "0", "1", "2"], 
+                ans: 0, 
+                exp: "Ini adalah definisi limit turunan untuk fungsi f(x) = x<sup>2</sup> yang menghasilkan f'(x) = 2x." 
+            },
+            { 
+                q: "Limit lim<sub>x&rarr;2</sub> [ (x<sup>2</sup> &minus; 4) / (x &minus; 2) ] dengan Aturan L'Hôpital adalah...", 
+                opts: ["0", "2", "4", "8", "Tidak terdefinisi"], 
+                ans: 2, 
+                exp: "Turunan pembilang 2x, turunan penyebut 1. Substitusi x = 2 menghasilkan 2(2) / 1 = 4." 
+            },
+            { 
+                q: "Limit lim<sub>x&rarr;0</sub> [ sin(3x) / x ] dengan Aturan L'Hôpital adalah...", 
+                opts: ["0", "1", "3", "1/3", "3 sin(x)"], 
+                ans: 2, 
+                exp: "Turunan pembilang 3 cos(3x), turunan penyebut 1. Substitusi x = 0 menghasilkan 3(1) / 1 = 3." 
+            },
+            { 
+                q: "Turunan dari f(x) = (2x + 1)(3x &minus; 2) adalah...", 
+                opts: ["6x &minus; 1", "12x &minus; 1", "6x + 5", "12x + 1", "6x<sup>2</sup> &minus; 2"], 
+                ans: 1, 
+                exp: "Jabarkan f(x) = 6x<sup>2</sup> &minus; x &minus; 2, lalu turunkan menjadi 12x &minus; 1." 
+            },
+            { 
+                q: "Menggunakan Aturan Rantai (Chain Rule), turunan dari f(x) = (3x<sup>2</sup> &minus; 5)<sup>4</sup> adalah...", 
+                opts: ["12(3x<sup>2</sup> &minus; 5)<sup>3</sup>", "24x(3x<sup>2</sup> &minus; 5)<sup>3</sup>", "4(3x<sup>2</sup> &minus; 5)<sup>3</sup>", "6x(3x<sup>2</sup> &minus; 5)<sup>3</sup>", "24x<sup>2</sup>(3x<sup>2</sup> &minus; 5)<sup>3</sup>"], 
+                ans: 1, 
+                exp: "Aturan rantai: turunkan pangkat luar 4(3x<sup>2</sup> &minus; 5)<sup>3</sup>, lalu kalikan dengan turunan fungsi dalam (6x), menghasilkan 24x(3x<sup>2</sup> &minus; 5)<sup>3</sup>." 
+            },
+            { 
+                q: "Menggunakan Aturan Rantai, turunan dari f(x) = sin(4x &minus; 2) adalah...", 
+                opts: ["cos(4x &minus; 2)", "4 cos(4x &minus; 2)", "&minus;4 cos(4x &minus; 2)", "4 sin(4x &minus; 2)", "&minus;sin(4x &minus; 2)"], 
+                ans: 1, 
+                exp: "Turunan luar dari sin(...) adalah cos(...), kemudian dikalikan dengan turunan sudut di dalam kurung (yaitu 4), sehingga menjadi 4 cos(4x &minus; 2)." 
+            },
+            { 
+                q: "Jika s(t) = t<sup>3</sup> &minus; 3t<sup>2</sup> menyatakan posisi partikel terhadap waktu t detik, kecepatan saat t = 2 detik adalah...", 
+                opts: ["0 m/s", "4 m/s", "&minus;4 m/s", "12 m/s", "&minus;12 m/s"], 
+                ans: 0, 
+                exp: "Kecepatan v(t) = s'(t) = 3t<sup>2</sup> &minus; 6t. Masukkan t = 2: 3(4) &minus; 6(2) = 12 &minus; 12 = 0 m/s." 
+            },
+            { 
+                q: "Titik stasioner dari kurva f(x) = x<sup>2</sup> &minus; 4x + 3 dicapai pada x = ...", 
+                opts: ["1", "2", "3", "4", "&minus;2"], 
+                ans: 1, 
+                exp: "Titik stasioner tercapai saat f'(x) = 0 &rarr; 2x &minus; 4 = 0 &rarr; x = 2." 
+            },
+            { 
+                q: "Pernyataan growth mindset manakah yang paling tepat saat menemui soal kalkulus yang sulit?", 
+                opts: ["Saya bodoh dan tidak bisa matematika", "Kesulitan ini melatih otak saya membangun koneksi saraf baru jika saya terus mencoba", "Lebih baik saya menyerah", "Matematika tidak berguna di kehidupan nyata", "Kalkulus hanya untuk ilmuwan"], 
+                ans: 1, 
+                exp: "Pola pikir bertumbuh memandang tantangan dan kesalahan sebagai proses bertumbuhnya kapasitas dan jaringan saraf otak." 
+            }
+        ];
+
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            if(!container) return;
+            let html = '';
+            quizData.forEach((item, idx) => {
+                html += `
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-3">
+                        <div class="text-xs font-bold text-indigo-700">Soal Nomor ${idx + 1} dari 20</div>
+                        <p class="text-sm font-semibold text-slate-800">${item.q}</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+                `;
+                item.opts.forEach((opt, oIdx) => {
+                    html += `
+                        <label class="flex items-center space-x-3 bg-white p-3 rounded-xl border border-slate-200 hover:border-indigo-400 cursor-pointer transition text-xs">
+                            <input type="radio" name="q_${idx}" value="${oIdx}" onchange="selectAnswer(${idx}, ${oIdx})" class="accent-indigo-600">
+                            <span class="font-mono font-medium">${String.fromCharCode(65 + oIdx)}. ${opt}</span>
+                        </label>
+                    `;
+                });
+                html += `</div></div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function selectAnswer(qIdx, optIdx) {
+            userAnswers[qIdx] = optIdx;
+            const answered = userAnswers.filter(ans => ans !== null).length;
+            document.getElementById('answeredCount').innerText = answered;
+
+            // Auto reveal answer key and grade when all 20 questions are answered!
+            if(answered === quizData.length) {
+                processQuizResults();
+            }
+        }
+
+        function submitQuiz() {
+            const answered = userAnswers.filter(ans => ans !== null).length;
+            if(answered < quizData.length) {
+                alert(`Anda baru menjawab ${answered} dari 20 soal. Silakan jawab semua soal terlebih dahulu.`);
+                return;
+            }
+            processQuizResults();
+        }
+
+        function processQuizResults() {
+            let score = 0;
+            quizData.forEach((item, idx) => {
+                if(userAnswers[idx] === item.ans) score++;
+            });
+
+            const finalScore = (score / quizData.length) * 100;
+            document.getElementById('quizSummary').innerHTML = `Nilai Akhir Anda: <strong class="text-indigo-600 text-base">${finalScore.toFixed(0)} / 100</strong> (${score} benar dari 20 soal).`;
+            
+            boostXP(100);
+            showToast("Semua soal telah terjawab! Kunci jawaban dan pembahasan resmi telah terbuka.");
+
+            // Render Answer Key & Explanations
+            const keyList = document.getElementById('answerKeyList');
+            let keyHtml = '';
+            quizData.forEach((item, idx) => {
+                const userChoice = userAnswers[idx];
+                const isCorrect = userChoice === item.ans;
+                keyHtml += `
+                    <div class="p-4 rounded-xl border ${isCorrect ? 'bg-emerald-50 border-emerald-200' : 'bg-rose-50 border-rose-200'} text-xs space-y-1">
+                        <div class="flex justify-between font-bold">
+                            <span class="text-slate-800">Soal ${idx + 1}: ${item.q}</span>
+                            <span class="${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${isCorrect ? '✓ Benar' : '✗ Salah'}</span>
+                        </div>
+                        <div>Jawaban Anda: <strong class="font-mono">${String.fromCharCode(65 + userChoice)}. ${item.opts[userChoice]}</strong></div>
+                        <div>Kunci Jawaban: <strong class="font-mono text-emerald-700">${String.fromCharCode(65 + item.ans)}. ${item.opts[item.ans]}</strong></div>
+                        <div class="text-slate-600 mt-1 pt-1 border-t border-slate-200"><strong>Pembahasan:</strong> ${item.exp}</div>
+                    </div>
+                `;
+            });
+            keyList.innerHTML = keyHtml;
+            document.getElementById('answerKeySection').classList.remove('hidden');
+            
+            // Smooth scroll to the answer key section
+            document.getElementById('answerKeySection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modals
+        function openGrowthModal() { document.getElementById('growthModal').classList.remove('hidden'); }
+        function closeGrowthModal() { document.getElementById('growthModal').classList.add('hidden'); }
+        function submitReflection() {
+            const text = document.getElementById('reflectionText').value;
+            if(!text.trim()) { alert("Silakan tuliskan refleksi singkat Anda."); return; }
+            boostXP(50);
+            closeGrowthModal();
+            showToast("Refleksi tersimpan! Semangat belajar Anda luar biasa.");
+            document.getElementById('reflectionText').value = "";
+        }
+
+        function showSolutionModal(type) {
+            const modal = document.getElementById('solutionModal');
+            const title = document.getElementById('modalTitle');
+            const desc = document.getElementById('modalDesc');
+            
+            if(type === 'kotak') {
+                title.innerText = "Penyelesaian Kontekstual: Kotak Tanpa Tutup";
+                desc.innerHTML = "1. Sisi karton 12 cm. Dipotong x di keempat sudutnya.<br>2. Dimensi kotak: p = 12 - 2x, l = 12 - 2x, t = x.<br>3. V(x) = x(12 - 2x)<sup>2</sup> = 4x<sup>3</sup> - 48x<sup>2</sup> + 144x.<br>4. V'(x) = 12x<sup>2</sup> - 96x + 144 = 0 &rarr; x<sup>2</sup> - 8x + 12 = 0.<br>5. (x - 2)(x - 6) = 0. Karena x = 6 tidak mungkin, maka x = 2 cm.";
+            } else if(type === 'partikel') {
+                title.innerText = "Penyelesaian Kontekstual: Gerak Partikel";
+                desc.innerHTML = "1. Diketahui s(t) = t<sup>3</sup> - 6t<sup>2</sup> + 9t.<br>2. Kecepatan partikel v(t) adalah turunan pertama posisi terhadap waktu: v(t) = s'(t) = 3t<sup>2</sup> - 12t + 9.<br>3. Saat partikel berhenti, kecepatan v(t) = 0.<br>4. 3(t<sup>2</sup> - 4t + 3) = 3(t - 1)(t - 3) = 0.<br>5. Diperoleh t = 1 detik dan t = 3 detik.";
+            } else if(type === 'aljabar') {
+                title.innerText = "Langkah Penyelesaian Limit Aljabar dengan Turunan";
+                desc.innerHTML = "1. Substitusi awal menghasilkan bentuk tak tentu 0 / 0.<br>2. Gunakan Aturan L'Hôpital: turunkan pembilang f(x) = x<sup>2</sup> &minus; 4 menjadi 2x.<br>3. Turunkan penyebut g(x) = x &minus; 2 menjadi 1.<br>4. Hitung limit baru: lim<sub>x&rarr;2</sub> [ 2x / 1 ] = 4. Selesai dengan elegan!";
+            } else {
+                title.innerText = "Langkah Penyelesaian Limit Trigonometri dengan Turunan";
+                desc.innerHTML = "1. Substitusi x = 0 menghasilkan sin(0) / 0 = 0 / 0.<br>2. Terapkan Aturan L'Hôpital (turunan atas dan bawah terhadap x):<br>&bull; Turunan sin(3x) adalah 3 cos(3x).<br>&bull; Turunan x adalah 1.<br>3. Masukkan nilai x = 0: 3 cos(0) / 1 = 3(1) / 1 = 3.";
+            }
+            modal.classList.remove('hidden');
+        }
+        function closeSolutionModal() { document.getElementById('solutionModal').classList.add('hidden'); }
+    </script>
+</body>
+</html>
